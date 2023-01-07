@@ -1,0 +1,27 @@
+{
+  "name": "04-base-node",
+  "version": "1.0.0",
+  "description": "Tabla de multiplicar con archivo de texto",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "base3": "node app --base=3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorsuap/node.git"
+  },
+  "author": "Jorddi Suarez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jorsuap/node/issues"
+  },
+  "homepage": "https://github.com/jorsuap/node#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "yargs": "^17.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
