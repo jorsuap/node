@@ -10,16 +10,16 @@ const preguntas = [
         messaje:'Que deseas hacer?',
         choices: [
             {
-                value:'1',
+                value:1,
                 name:`${'1'.green}. Buscar ciudad`
             },
             {
-                value:'2',
+                value:2,
                 name:`${'2'.green}. HIstorial`
             },
             {
-                value:'0',
-                name:`${'3'.green}. Salir`
+                value:0,
+                name:`${'0'.green}. Salir`
             },
         ]
     }
@@ -47,7 +47,7 @@ const pausa =  async() => {
     }];
     console.log('\n');
     const { opcion } = await inquirer.prompt(question);
-    return opcion;
+    // return opcion;
 }
 
 const leerInput = async(message) => {
@@ -93,13 +93,13 @@ const mostrarListadoCheckList = async(tareas = []) => {
     return ids;
 }
 
-const listadoTareasBorrar = async(tareas = []) => {
+const listarLugares = async(lugares = []) => {
 
-    const choices = tareas.map((tarea, i) => {
+    const choices = lugares.map((lugar, i) => {
         const idx =`${i + 1}`.green;
         return{
-            value: tarea.id,
-            name: `${idx} ${tarea.desc}`
+            value: lugar.id,
+            name: `${idx} ${lugar.nombre}`
         }
     });
     choices.unshift({
@@ -110,7 +110,7 @@ const listadoTareasBorrar = async(tareas = []) => {
         {
             type:'list',
             name:'id',
-            message:'Borrar',
+            message:'Selecione lugar',
             choices
         }
     ];
@@ -133,7 +133,7 @@ module.exports = {
     inquirerMenu,
     pausa,
     leerInput,
-    listadoTareasBorrar,
+    listarLugares,
     confirmar,
     mostrarListadoCheckList
 }
