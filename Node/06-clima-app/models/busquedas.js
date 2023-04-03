@@ -2,6 +2,7 @@ const fs = require('fs');
 const axios = require('axios');
 
 class Busqueda {
+
     historial = ['Tagucigalpa','Madrid', 'San Jose'];
     dbpath = './db/database.json';
 
@@ -9,6 +10,7 @@ class Busqueda {
         this.LeerDB();
         //Todo: Leer DB si existe
     }
+
     get paramsMapbox(){
         return{
             'access_token':process.env.MAPBOX_KEY,
@@ -24,11 +26,12 @@ class Busqueda {
             'units':'metric'
         }
     }
+
     get historialCapital (){
         return this.historial.map(lugar =>{
-            let palabras = lugar.split(' ');
-            palabras = palabras.map(p => p[0].toUpperCase() + p.substring(1));
-                return palabras.join(' ')
+            let palabras = lugar.split(' '); // separa cada palabra por los espacios
+            palabras = palabras.map(p => p[0].toUpperCase() + p.substring(1)); //retorna la primera letra en mayuscula y concatena el resto de la cadena
+                return palabras.join(' ')// finalmente une todo por los espacios que los separo inicialmente
         })
     }
 
@@ -52,7 +55,6 @@ class Busqueda {
         } catch (error) {
             return []; //Retornar lugares
         }
-        
     }
 
     async climaCiudad(lat, lon){
@@ -101,9 +103,6 @@ class Busqueda {
         const data = JSON.parse(info);
         this.historial = data.historial;
     }
-
 };
-
-
 
 module.exports = Busqueda;
