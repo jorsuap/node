@@ -61,7 +61,7 @@ class Tareas {
                 console.log(`${(index+'.').green} ${desc} :: ${estado}`);
             }
         })
-    }
+    }  
 
     toggleCompletadas(ids =[]){
         ids.forEach(id => {
